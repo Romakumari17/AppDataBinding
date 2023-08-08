@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="name"
+            type="String" />
+        <variable
+            name="number"
+            type="Integer" />
+        <variable
+            name="mainActivity"
+            type="com.romakumari.appdatabinding.MainActivity" />
+        <variable
+            name="Show"
+            type="Boolean" />
+        <import type="android.view.View"/>
+
+    </data>
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/size_50sp"
+        android:textColor="@color/black"
+        android:visibility="@{Show? View.VISIBLE:View.GONE}"
+        android:text="@{name}"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/size_50sp"
+        android:visibility="@{Show? View.VISIBLE:View.GONE}"
+        android:text="@{number.toString()}"/>
+
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:onClick="@{()-> mainActivity.ButtonClick()}"
+    android:text="@string/Click"
+    />
+
+
+</LinearLayout>
+</layout>
